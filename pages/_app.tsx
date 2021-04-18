@@ -1,9 +1,10 @@
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './theme';
-import Footer from '@components/footer/Footer'
+import Footer from '@components/footer/Footer';
+import NavBar from "@components/navigation/NavBar";
 import '@styles/globals.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 
 // matrial-ui imports
@@ -15,7 +16,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Box from '@material-ui/core/Box';
-import { Grid } from '@material-ui/core';
+//import { Grid } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   container: {
-    margin: '0.6rem 0.5rem',
+    marginTop: '4.6rem',
     padding: '1rem'
   }
 }));
@@ -42,6 +43,10 @@ const useStyles = makeStyles((theme) => ({
 function MyApp({ Component, pageProps }) {
 
   const classes = useStyles();
+
+  const [myState, setMyState] = useState<string>('Masha&Bear');
+
+  //console.log('Oage props ', JSON.stringify(pageProps, null, 4));
 
   useEffect(() => {
     // Remove the server-side injected CSS.
@@ -58,27 +63,14 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-      <AppBar position="static" >
-        <Toolbar className={classes.navigation}>
-          <Typography className={classes.title}>
-            <IconButton edge="start" color="inherit" aria-label="menu">
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6">zeH-SHOP Lenovo App</Typography>
-          </Typography>
 
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
-      
-        <Grid container direction="column" >
+        <NavBar {...pageProps} />
 
-          <Box style={{flex: 2}} className={classes.container}>
-            <Component {...pageProps} />
-          </Box>
+        <Box className={classes.container}>
+          <Component {...pageProps} />
+        </Box>
 
-          <Footer />
-        </Grid>
+        <Footer />
       </ThemeProvider>
     </>
   );

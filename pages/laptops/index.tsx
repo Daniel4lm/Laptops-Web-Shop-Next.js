@@ -84,10 +84,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const minRange: number = curPageNum * 5;
     const maxRange: number = (curPageNum + 1) * 5;
 
-    console.log('min ', minRange, 'max ', maxRange)
+    //console.log('Total pages ', context.total,'min ', minRange, 'max ', maxRange)
 
     const myDB = await openDB();
     const laptops = await myDB.all("SELECT * FROM laptops WHERE id BETWEEN ? AND ?;", [minRange, maxRange]);
+    const { total } = await myDB.get("SELECT COUNT(*) AS total FROM laptops ;");
+    const numOfPages: number = (Math.ceil(total) / 5.0);
     //console.log(JSON.stringify(laptops, null, 4))
 
     const serviceDirectory = join(process.cwd(), 'public');
@@ -102,6 +104,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
     return {
         props: {
             laptops,
+            curPageNum,
+            numOfPages
         }
     }
 }
