@@ -10,13 +10,13 @@
     ------------------------------------------------------------------------------------------------------------------------------
     ![image](https://user-images.githubusercontent.com/1280747/115615647-852af300-a2ef-11eb-916b-96db8a0b5152.png)
 
-    In this project, I have built an e-commerce website and learned how to use **getStaticProps** and **getStaticPaths** in Next.js to statically generate the whole website. 
+  In this project, I have built an e-commerce website and learned how to use **getStaticProps** and **getStaticPaths** in Next.js to statically generate the whole website. 
 
 ## How to test app
 
 First, clone the project files to your local host. Install SQlite and setup installation on your computer. Once you're done this, be sure that you have the latest Node.js version 
 
-  `` node -v `` 
+  ``` node -v ```
 
 Open your favorite code editor, like Visual Studio Code or Sublime, open the project workspace and run the development server:
 
@@ -27,6 +27,50 @@ Open your favorite code editor, like Visual Studio Code or Sublime, open the pro
   ```
 
 Then, open [http://localhost:3000](http://localhost:3000) with your browser and navigate to my shop.
+
+The wholeproject structure is as follows:
+  [] laptops
+   |
+   | - .next
+   | - [*] components
+   |    |
+   |    | - [*] footer
+   |    |    | - Footer.tsx
+   |    |
+   |    | - [*] navigation
+   |    |    | - NavBar.tsx
+   |    |  
+   |    | - [*] paginator
+   |    |    | - MyPaginator.tsx
+   ...
+   | - [*] lib
+   |    | - openDB.ts
+   |    
+   | - [*] migrations
+   |    | - 001_initial_shema.sql
+   ...
+   | - [*] model
+   |    | - Laptops.tsx
+   ...
+   | - [*] pages
+   |    | - [*] laptops
+   |    |    | - [curPage].tsx
+   |    |    | - index.tsx
+   |    |
+   |    | - [*] laptop
+   |    |    | - [id].tsx
+   |    | 
+   |    | - _app.tsx <- tweaked for material-ui
+   |    | - _document.js <- tweaked for material-ui
+   |    | - index.tsx 
+   |    | - theme.js <- theme configuration for material-ui
+   ...
+   | - [*] public
+   |    | - [*] laptops
+   |         | <- here are our items pictures
+   ...
+   | - [*] styles
+   |    | <- styles for whole app
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
