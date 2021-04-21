@@ -4,13 +4,11 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 
 export interface LaptopDetailProps {
-    laptop: Laptop
+    laptop: Laptop | null | undefined;
 }
 //export type LaptopDetailProps = Laptop;
 
 export default function LaptopDetail({ laptop }: LaptopDetailProps) {
-
-    const { id, brand, name, display, processor, memory, memory_type, graphics, storage, storage_unit, imgUrl } = laptop;
 
     const router = useRouter();
 
@@ -20,7 +18,15 @@ export default function LaptopDetail({ laptop }: LaptopDetailProps) {
                 <p>Loading ... We are back in a moment :)</p>
             </div>
         )
+    } else if(!laptop) {
+        return (
+            <div>
+                <h2>Sorry, laptop can't be found!</h2>
+            </div>
+        );
     }
+    
+    const { id, brand, name, display, processor, memory, memory_type, graphics, storage, storage_unit, imgUrl } = laptop;
 
     return (
         <div>
@@ -56,9 +62,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const lapId = context.params.id;
     const myDB = await openDB(); // Our db connection
     // DB query for one specific laptop
-    const laptop = await myDB.get("SELECT * FROM laptops WHERE id = ?;", [lapId])
+    const laptop = await myDB.get<Laptop | undefined>("SELECT * FROM laptops WHERE id = ?;", [lapId])
 
     return {
-        props: { laptop }
+        props: { laptop: laptop || null }
     }
 }

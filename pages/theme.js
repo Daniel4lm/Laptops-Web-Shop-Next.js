@@ -5,8 +5,7 @@ import { light } from '@material-ui/core/styles/createPalette';
 // Create a theme instance.
 const theme = createMuiTheme({
     spacing: 4,
-    palette: {
-        
+    palette: {        
         primary: {
             light: '#556cd6',
             main: '#556cd6',

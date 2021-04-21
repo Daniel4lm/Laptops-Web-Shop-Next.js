@@ -4,8 +4,7 @@ import { GetStaticProps } from 'next';
 import Link from "next/link";
 import fs from 'fs';
 import { join } from 'path';
-
-// Material-ui imports
+/* Material-ui imports */
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -15,61 +14,81 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import MyPaginator from "@components/paginator/MyPaginator";
 
 interface LaptopsProps {
     laptops: Laptop[];
+    curPageNum: number;
+    numOfPages: number;
 }
 
 const useStyles = makeStyles({
     root: {
         background: '#f5f5f5'
     },
+    openBtn: {
+        color: "#fff",
+        background: 'rgb(7, 177, 77, 0.8)',
+        "&:hover": {
+            background: 'rgb(7, 177, 77, 0.7)',
+        },
+    },
+
 });
 
-export default function Laptops({ laptops }: LaptopsProps) {
+export default function Laptops({ laptops, curPageNum, numOfPages }: LaptopsProps) {
 
     const classes = useStyles();
 
     //console.log(JSON.stringify(images, null, 4));
 
     return ( // className={classes.root}
-        <Grid container spacing={2}>
-            {laptops.map((laptop) => (
-                <Grid key={laptop.id} item xs={12} sm={6} lg={3}>
-                    <Link href={`/laptop/${laptop.id}`}>
-                        <a>
-                            <Card>
-                                <CardActionArea>
-                                    <CardMedia
-                                        component="img"
-                                        alt={laptop.name + laptop.brand}
-                                        height="240"
-                                        image={laptop.imgUrl[0]}
-                                        title={laptop.brand + ' ' + laptop.name}
-                                    />
-                                    <CardContent>
-                                        <Typography gutterBottom variant="h5" component="h2">
-                                            {laptop.brand + ' ' + laptop.name}
+        <Grid container direction="column">
+
+            <MyPaginator curPageNum={curPageNum} numOfPages={numOfPages} />
+
+            <Grid container spacing={2}>
+                {laptops.map((laptop) => (
+                    <Grid key={laptop.id} item xs={12} sm={6} lg={3}>
+
+                        <Card>
+                            <Link href={`/laptop/${laptop.id}`}>
+                                <a>
+                                    <CardActionArea>
+                                        <CardMedia
+                                            component="img"
+                                            alt={laptop.name + laptop.brand}
+                                            height="250"
+                                            image={laptop.imgUrl[0]}
+                                            title={laptop.brand + ' ' + laptop.name}
+                                        />
+                                        <CardContent>
+                                            <Typography gutterBottom variant="h5" component="h2">
+                                                {laptop.brand + ' ' + laptop.name}
+                                            </Typography>
+                                            <Typography variant="body2" color="textSecondary" component="p">
+                                                Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+                                                across all continents except Antarctica
                                         </Typography>
-                                        <Typography variant="body2" color="textSecondary" component="p">
-                                            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                            across all continents except Antarctica
-                                </Typography>
-                                    </CardContent>
-                                </CardActionArea>
-                                <CardActions>
+                                        </CardContent>
+                                    </CardActionArea>
+                                </a>
+                            </Link>
+                            <CardActions>
+                                <Link href={`/laptop/${laptop.id}`}>
                                     <Button size="small" color="primary">
                                         Open
-                                </Button>
-                                    <Button size="small" color="secondary">
-                                        Learn More
-                                </Button>
-                                </CardActions>
-                            </Card>
-                        </a>
-                    </Link>
-                </Grid>
-            ))}
+                            </Button>
+                                </Link>
+                                <Button className={classes.openBtn} size="small" color="secondary">
+                                    Learn More
+                            </Button>
+                            </CardActions>
+                        </Card>
+
+                    </Grid>
+                ))}
+            </Grid>
         </Grid>
     );
 }

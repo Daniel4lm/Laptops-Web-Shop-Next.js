@@ -1,16 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# This is a Web Shop App made by [Next.js](https://nextjs.org/) react framework, bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+  -> Screenshots:
+    
+    ![image](https://user-images.githubusercontent.com/1280747/115615384-2e251e00-a2ef-11eb-9f69-4965c5a00e1a.png)
+    ------------------------------------------------------------------------------------------------------------------------------
+    ![image](https://user-images.githubusercontent.com/1280747/115615487-51e86400-a2ef-11eb-8994-c0caab39427f.png)
+    ------------------------------------------------------------------------------------------------------------------------------
+    ![image](https://user-images.githubusercontent.com/1280747/115615546-64fb3400-a2ef-11eb-878a-160ee7f28687.png)
+    ------------------------------------------------------------------------------------------------------------------------------
+    ![image](https://user-images.githubusercontent.com/1280747/115615647-852af300-a2ef-11eb-916b-96db8a0b5152.png)
 
-First, run the development server:
+    In this project, I have built an e-commerce website and learned how to use **getStaticProps** and **getStaticPaths** in Next.js to statically generate the whole website. 
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## How to test app
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+First, clone the project files to your local host. Install SQlite and setup installation on your computer. Once you're done this, be sure that you have the latest Node.js version 
+
+  `` node -v `` 
+
+Open your favorite code editor, like Visual Studio Code or Sublime, open the project workspace and run the development server:
+
+  ```bash
+  npm run dev
+  # or
+  yarn dev
+  ```
+
+Then, open [http://localhost:3000](http://localhost:3000) with your browser and navigate to my shop.
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 

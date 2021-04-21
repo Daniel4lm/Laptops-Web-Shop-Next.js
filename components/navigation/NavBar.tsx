@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginRight: theme.spacing(2),
     },
     title: {
         display: 'flex',
@@ -70,11 +69,8 @@ export default function NavBar(props) {
                     </Link>
                     <Typography variant="h6">zeH-SHOP Lenovo App</Typography>
                 </Typography>
-
-                {isLaptopsPath && renderPageNav()}
-
                 <Button color="inherit">Login</Button>
             </Toolbar>
         </AppBar>
     );
-}
+} // {isLaptopsPath && renderPageNav()}
