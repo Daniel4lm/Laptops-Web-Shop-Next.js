@@ -29,7 +29,8 @@ Open your favorite code editor, like Visual Studio Code or Sublime, open the pro
 Then, open [http://localhost:3000](http://localhost:3000) with your browser and navigate to my shop.
 
 The wholeproject structure is as follows:
-  [] laptops
+```
+  [+] laptops
    |
    | - .next
    | - [*] components
@@ -71,6 +72,7 @@ The wholeproject structure is as follows:
    ...
    | - [*] styles
    |    | <- styles for whole app
+   ```
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
