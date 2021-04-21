@@ -1,6 +1,6 @@
 # This is a Web Shop App made by [Next.js](https://nextjs.org/) react framework, bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-  -> Screenshots:
+   :camera: Screenshots:
     
     ![image](https://user-images.githubusercontent.com/1280747/115615384-2e251e00-a2ef-11eb-9f69-4965c5a00e1a.png)
     ------------------------------------------------------------------------------------------------------------------------------
@@ -28,7 +28,7 @@ Open your favorite code editor, like Visual Studio Code or Sublime, open the pro
 
 Then, open [http://localhost:3000](http://localhost:3000) with your browser and navigate to my shop.
 
-The wholeproject structure is as follows:
+ :mag: The wholeproject structure is as follows:
 ```
   [+] laptops
    |
@@ -74,9 +74,9 @@ The wholeproject structure is as follows:
    |    | <- styles for whole app
    ```
 
-The list of laptops is located inside `pages/laptops/index.js`. Inside `[curPage].tsx` I have basicaly imported getStaticProps and Page Laptops from `index.js` and created getStaticPaths to generate all url paths for each laptop. Laptop details for every single unit is located inside `pages/laptop/[id].tsx` page. 
+ :star: The list of laptops is located inside `pages/laptops/index.js`. Inside `[curPage].tsx` I have basicaly imported getStaticProps and Page Laptops from `index.js` and created getStaticPaths to generate all url paths for each laptop. Laptop details for every single unit is located inside `pages/laptop/[id].tsx` page. 
 
-~We don't serve any API routes in this case~
+*We don't serve any API routes in this case*
 
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
