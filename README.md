@@ -1,4 +1,4 @@
-# This is a Web Shop App made by [Next.js](https://nextjs.org/) react framework, bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## This is a Web Shop App made by [Next.js](https://nextjs.org/) react framework, bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
    :camera: Screenshots:
     
@@ -10,7 +10,7 @@
     ------------------------------------------------------------------------------------------------------------------------------
     ![image](https://user-images.githubusercontent.com/1280747/115615647-852af300-a2ef-11eb-916b-96db8a0b5152.png)
 
-  In this project, I have built an e-commerce website and learned how to use **getStaticProps** and **getStaticPaths** in Next.js to statically generate the whole website. 
+  👋 In this project, I have built an e-commerce website and learned how to use **getStaticProps** and **getStaticPaths** in Next.js to statically generate the whole website.
 
 ## How to test app
 
