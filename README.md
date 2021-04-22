@@ -1,14 +1,14 @@
 ## This is a Web Shop App made by [Next.js](https://nextjs.org/) react framework, bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-   :camera: Screenshots:
+  :camera: Screenshots:
     
-    ![image](https://user-images.githubusercontent.com/1280747/115615384-2e251e00-a2ef-11eb-9f69-4965c5a00e1a.png)
-    ------------------------------------------------------------------------------------------------------------------------------
-    ![image](https://user-images.githubusercontent.com/1280747/115615487-51e86400-a2ef-11eb-8994-c0caab39427f.png)
-    ------------------------------------------------------------------------------------------------------------------------------
-    ![image](https://user-images.githubusercontent.com/1280747/115615546-64fb3400-a2ef-11eb-878a-160ee7f28687.png)
-    ------------------------------------------------------------------------------------------------------------------------------
-    ![image](https://user-images.githubusercontent.com/1280747/115615647-852af300-a2ef-11eb-916b-96db8a0b5152.png)
+  ![image](https://user-images.githubusercontent.com/1280747/115615384-2e251e00-a2ef-11eb-9f69-4965c5a00e1a.png)
+   ------------------------------------------------------------------------------------------------------------------------------
+  ![image](https://user-images.githubusercontent.com/1280747/115615487-51e86400-a2ef-11eb-8994-c0caab39427f.png)
+   ------------------------------------------------------------------------------------------------------------------------------
+  ![image](https://user-images.githubusercontent.com/1280747/115615546-64fb3400-a2ef-11eb-878a-160ee7f28687.png)
+   ------------------------------------------------------------------------------------------------------------------------------
+  ![image](https://user-images.githubusercontent.com/1280747/115615647-852af300-a2ef-11eb-916b-96db8a0b5152.png)
 
   👋 In this project, I have built an e-commerce website and learned how to use **getStaticProps** and **getStaticPaths** in Next.js to statically generate the whole website.
 
