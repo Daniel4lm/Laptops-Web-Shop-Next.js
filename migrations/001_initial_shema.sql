@@ -24,7 +24,10 @@ VALUES
 ("Lenovo", "ThinkPad T450", "14 inch", "i5-5200U 2.2 GHz", 4, "DDR3L-SDRAM", "Intel HD Graphics 5500", 500, "GB HDD", "/laptops/T450/"),
 ("Lenovo", "ThinkPad T480", "14 inch", "i5-8250U 1.60 GHz", 4, "DDR4-SDRAM", "Intel UHD Graphics 620", 500, "GB HDD", "/laptops/T480/"),
 ("Lenovo", "ThinkPad T540p", "15.6 inch", "Intel Core i7(4700MQ) 2.4GHz", 16, "DDR3L", "Intel HD Graphics 4600", 256, "GB SSD", "/laptops/T540p/"),
-("Lenovo", "ThinkPad T540p", "15.6 inch", "Intel Core i5 4200M @ 2.50GHz", 8, "DDR3", "Intel HD Graphics 4600", 128, "GB SSD", "/laptops/T540p/")
+("Lenovo", "ThinkPad T540p", "15.6 inch", "Intel Core i5 4200M @ 2.50GHz", 8, "DDR3", "Intel HD Graphics 4600", 128, "GB SSD", "/laptops/T540p/"),
+("Lenovo", "ThinkPad L570 - 20J80027HV", "15.6 inch", "i5-7200U 2.50 GHz", 8, "DDR4-SDRAM", "Intel HD Graphics 620", 1000 , "GB HDD", "/laptops/L570/"),
+("Lenovo", "ThinkPad P51s - 20HB000VSP", "15.6 inch", "i7-7500U 2.70 GHz", 8, "DDR4-SDRAM", "NVIDIA Quadro M520M", 256  , "GB SSD", "/laptops/P51s/")
+
 ;
 
 -- Down

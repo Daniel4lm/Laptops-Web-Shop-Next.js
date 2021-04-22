@@ -106,9 +106,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
     //console.log('Total pages ', context.total,'min ', minRange, 'max ', maxRange)
 
     const myDB = await openDB();
-    const laptops = await myDB.all("SELECT * FROM laptops WHERE id BETWEEN ? AND ?;", [minRange, maxRange]);
+    const laptops = await myDB.all("SELECT * FROM laptops WHERE id BETWEEN ? AND ?;", [minRange + 1, maxRange]);
     const { total } = await myDB.get("SELECT COUNT(*) AS total FROM laptops ;");
-    const numOfPages: number = (Math.ceil(total) / 5.0);
+    console.log('Ukupno laptopa ', total)
+    const numOfPages: number = (Math.ceil(total / 5.0));
     //console.log(JSON.stringify(laptops, null, 4))
 
     const serviceDirectory = join(process.cwd(), 'public');

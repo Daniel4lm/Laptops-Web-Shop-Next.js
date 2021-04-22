@@ -11,13 +11,13 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        margin: "1rem 0 0.4rem 0",
+        margin: "0 0 0.4rem 0",
         padding: "0.4rem 0",
         background: "#fff",
-        //boxShadow: "0px 0px 2px 0px rgba(175, 175, 175, 0.4)",
-        borderTop: "4px solid rgba(175, 175, 175, 0.6)",
-        borderBottom: "4px solid rgba(175, 175, 175, 0.6)",
-        borderRadius: "0.2rem",
+        boxShadow: "0px 0px 1px 0px rgba(175, 175, 175, 0.6)",
+        //borderTop: "4px solid rgba(175, 175, 175, 0.6)",
+        borderBottom: "4px solid rgba(76, 175, 80, 0.7)",
+        //borderRadius: "0.2rem",
         "& > *": {
             margin: "0 0.5rem"
         }

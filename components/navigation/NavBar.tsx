@@ -9,8 +9,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Box from '@material-ui/core/Box';
-import NavigateBeforeRoundedIcon from '@material-ui/icons/NavigateBeforeRounded';
-import NavigateNextRoundedIcon from '@material-ui/icons/NavigateNextRounded';
+
 
 const useStyles = makeStyles((theme) => ({
     navigation: {
@@ -36,24 +35,15 @@ export default function NavBar(props) {
     const { pathname } = router;
     const isLaptopsPath: boolean = pathname.startsWith('/laptops');
 
-    const renderPageNav = () => {
+    const renderTitle = () => {
         const { curPageNum, numOfPages } = props;
         //console.log('Total pages: ', numOfPages, ' - current page ', curPageNum)
-        const isBackBtn: boolean = (curPageNum > 0);
-        const isForwardBtn: boolean = (curPageNum + 1) < numOfPages;
 
         return (
             <Box>
-                <Link href={curPageNum > 1 ? `/laptops/${curPageNum - 1}` : '/laptops'}>
-                    <Button variant="contained" disabled={!isBackBtn} size="small" color="default" className={classes.navBtn}                    >
-                        <NavigateBeforeRoundedIcon /> Previous
-                    </Button>
-                </Link>
-                <Link href={`/laptops/${curPageNum + 1}`}>
-                    <Button variant="contained" disabled={!isForwardBtn} size="small" color="default" className={classes.navBtn}                    >
-                        Next <NavigateNextRoundedIcon />
-                    </Button>
-                </Link>
+                <Typography variant="h6" color="inherit">
+                    Our laptps offer
+                </Typography>
             </Box>
         );
     }
@@ -63,14 +53,15 @@ export default function NavBar(props) {
             <Toolbar className={classes.navigation}>
                 <Typography className={classes.title}>
                     <Link href='/'>
-                        <IconButton edge="start" color="inherit" aria-label="menu">
+                        <IconButton color="inherit" aria-label="menu">
                             <MenuIcon />
                         </IconButton>
                     </Link>
-                    <Typography variant="h6">zeH-SHOP Lenovo App</Typography>
+                    <Typography variant="h6" >zeH-SHOP Lenovo App</Typography>
                 </Typography>
+                {isLaptopsPath && renderTitle()}
                 <Button color="inherit">Login</Button>
             </Toolbar>
         </AppBar>
     );
-} // {isLaptopsPath && renderPageNav()}
+} // {isLaptopsPath && renderTitle()}

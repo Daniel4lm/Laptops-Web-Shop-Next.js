@@ -6,7 +6,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './theme';
 import Footer from '@components/footer/Footer';
 import NavBar from "@components/navigation/NavBar";
-//import '@styles/globals.css';
+import '@styles/globals.css';
 
 // matrial-ui imports
 import { makeStyles } from '@material-ui/core/styles';
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   container: {
-    marginTop: '4.6rem',
+    marginTop: '4rem',
     padding: '1rem'
   }
 }));
