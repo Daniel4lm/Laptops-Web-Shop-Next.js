@@ -10,7 +10,7 @@ interface Laptop {
     graphics: string;
     storage: number;
     storage_unit: string;
-    imgUrl?: string | string[];
+    imgUrl?: string[];
 }
 
 export default Laptop;
