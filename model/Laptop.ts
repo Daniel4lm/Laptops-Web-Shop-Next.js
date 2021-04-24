@@ -11,6 +11,7 @@ interface Laptop {
     storage: number;
     storage_unit: string;
     imgUrl?: string[];
+    price: number;
 }
 
 export default Laptop;

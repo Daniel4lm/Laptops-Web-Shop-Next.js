@@ -9,14 +9,17 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-
+import Link from '@material-ui/core/Link';
 import MemoryIcon from '@material-ui/icons/Memory';
 import LaptopMacRoundedIcon from '@material-ui/icons/LaptopMacRounded';
 import StorageRoundedIcon from '@material-ui/icons/StorageRounded';
 import AddToQueueRoundedIcon from '@material-ui/icons/AddToQueueRounded';
 import ImageRoundedIcon from '@material-ui/icons/ImageRounded';
+import ZoomInIcon from '@material-ui/icons/ZoomIn';
 import { useEffect, useState } from 'react';
 
+import { Modal as Magnifier } from "@components/modal/Modal";
+import { Box, Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -29,6 +32,14 @@ const useStyles = makeStyles((theme) => ({
     gallery: {
         width: '100%',
     },
+    imageContainer: {
+        position: 'relative',
+        width: 'inherit',
+        height: 'inherit',
+        "&:hover *": {
+            opacity: 1
+        }
+    },
     image: {
         maxWidth: '100%',
         maxHeight: '100%',
@@ -40,8 +51,6 @@ const useStyles = makeStyles((theme) => ({
         margin: '0 0.2rem',
         cursor: 'pointer',
         "&:hover": {
-            //borderRadius: "0.2rem",
-            //boxShadow: '0px 0px 2px 0px rgba(0, 112, 243, 0.4)',
             borderColor: 'rgb(0, 112, 243)',
             background: "rgb(7, 177, 77, 0.7)",
         }
@@ -56,6 +65,25 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '1.8rem',
         fontWeight: 200
     },
+    back: {
+        margin: theme.spacing(2),
+        fontSize: '1.2em',
+        '& > *': {
+            marginRight: theme.spacing(1)
+        },
+        "& :first-child": {
+            //marginRight: '1.4rem',
+            //padding: '1.4rem',
+            color: '#fff',
+            background: '#a29bfe',
+            boxShadow: 'none',
+            outline: 'none'
+        },
+        "& span": {
+            color: 'gray',
+            fontWeight: 200
+        }
+    },
     typo: {
         display: 'flex',
         flexDirection: 'row',
@@ -68,8 +96,31 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     price: {
-        margin: '0 0.4rem'
+        margin: '0 0.4rem',
     },
+    priceContainer: {
+        "& p": {
+            fontSize: '1.2rem',
+        }
+    },
+    divider: {
+        width: 'auto',
+        height: '0.05rem',
+        background: '#b2bec3',
+        margin: '0.4rem 0'
+    },
+    zoomIcon: {
+        position: 'absolute',
+        top: '50%',
+        right: '50%',
+        transform: 'translate(-50%, 50%)',
+        fontSize: '2.5rem',
+        color: 'rgb(107, 107, 107)',
+        background: '#fff',
+        borderRadius: '0.2rem',
+        opacity: 0,
+        transition: 'all 500ms ease-in-out',
+    }
 }));
 
 export interface LaptopDetailProps {
@@ -83,10 +134,12 @@ export default function LaptopDetail({ laptop }: LaptopDetailProps) {
     const classes = useStyles();
 
     const [curImg, setCurImg] = useState<string>(null);
+    const [openModal, setOpenModal] = useState<boolean>(false);
 
+    /*
     useEffect(() => {
         console.log('Slika ', curImg)
-    }, [curImg])
+    }, [curImg])*/
 
     if (router.isFallback) {
         return (
@@ -102,19 +155,41 @@ export default function LaptopDetail({ laptop }: LaptopDetailProps) {
         );
     }
 
-    const { id, brand, name, display, processor, memory, memory_type, graphics, storage, storage_unit, imgUrl } = laptop;
+    const { id, brand, name, display, processor, memory, memory_type, graphics, storage, storage_unit, imgUrl, price } = laptop;
 
     return (
         <div className={classes.root}>
+            <Box className={classes.back}>
+                <Button size='small' 
+                    onClick={() => router.back()}
+                >Back</Button>
+                <Link href='/'>Home</Link>
+                <span>/</span>
+                <Link href='/laptops'>Laptops</Link>
+                <span>/</span>
+                <span>{name}</span>
+            </Box>
             <Paper className={classes.paper}>
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={6} sm container direction="column" >
                         <Grid item container spacing={2}>
-                            <Grid style={{ width: 'inherit', height: 'inherit' }}>
+                            <Grid className={classes.imageContainer}
+                                onClick={() => setOpenModal(true)}
+                            >
                                 <img className={classes.image} alt={name}
                                     src={curImg !== null ? curImg : imgUrl[0]}
                                 />
+                                <ZoomInIcon className={classes.zoomIcon} />
                             </Grid>
+
+                            <Magnifier
+                                isOpen={openModal}
+                                onClose={() => setOpenModal(!openModal)}
+                            >
+                                <img className={classes.image} alt={name}
+                                    src={curImg !== null ? curImg : imgUrl[0]}
+                                />
+                            </Magnifier>
 
                             <Grid item className={classes.gallery} direction="row" justify="center" container spacing={2}>
                                 {imgUrl.map(img => (
@@ -149,7 +224,7 @@ export default function LaptopDetail({ laptop }: LaptopDetailProps) {
                                 <Typography className={classes.typo} variant="body1" >
                                     <StorageRoundedIcon /> Storage: <b>{storage}{' '}{storage_unit}</b>
                                 </Typography>
-                                <hr></hr>
+                                <div className={classes.divider} />
                                 <Typography variant="body1">
                                     Click the image for Full resolution • JPG/JPEG/PNG
                                 </Typography>
@@ -159,9 +234,9 @@ export default function LaptopDetail({ laptop }: LaptopDetailProps) {
                                 </Typography>
                             </Grid>
 
-                            <Grid  item container justify="center" alignItems="center">
-                                <Typography variant="subtitle1">Price</Typography>
-                                <Typography className={classes.price} variant="h6">$19.00</Typography>
+                            <Grid className={classes.priceContainer} item container justify="center" alignItems="center">
+                                <p>Price: </p>
+                                <Typography className={classes.price} variant="h6">{price.toFixed(2)} KM</Typography>
                             </Grid>
                         </Grid>
 

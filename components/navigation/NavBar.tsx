@@ -48,8 +48,8 @@ export default function NavBar(props) {
         );
     }
 
-    return (
-        <AppBar position="fixed" >
+    return (// 
+        <AppBar position="static" >
             <Toolbar className={classes.navigation}>
                 <Typography className={classes.title}>
                     <Link href='/'>

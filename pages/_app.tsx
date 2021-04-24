@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   container: {
-    marginTop: '4rem',
+    //marginTop: '4rem',
     padding: '1rem'
   }
 }));
@@ -48,7 +48,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ThemeProvider theme={theme}>
         <CssBaseline />
 
-        <NavBar {...pageProps} />
+        <NavBar />
 
         <Box className={classes.container}>
           <Component {...pageProps} />
