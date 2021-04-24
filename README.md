@@ -2,7 +2,7 @@
 
   :camera: Screenshots:
     
-  [image](https://user-images.githubusercontent.com/1280747/115972906-8a877800-a551-11eb-8d2f-5f556a6f9793.png)
+  ![image](https://user-images.githubusercontent.com/1280747/115972906-8a877800-a551-11eb-8d2f-5f556a6f9793.png)
    ------------------------------------------------------------------------------------------------------------------------------
   ![image](https://user-images.githubusercontent.com/1280747/115972916-9f640b80-a551-11eb-94db-2996a72b039e.png)
    ------------------------------------------------------------------------------------------------------------------------------
@@ -10,7 +10,7 @@
    ------------------------------------------------------------------------------------------------------------------------------
   ![image](https://user-images.githubusercontent.com/1280747/115972940-c91d3280-a551-11eb-8ece-2790cb9fcae6.png)
    ------------------------------------------------------------------------------------------------------------------------------
-   ![image](https://user-images.githubusercontent.com/1280747/115972961-f10c9600-a551-11eb-89c0-61f9456147e8.png)
+  ![image](https://user-images.githubusercontent.com/1280747/115972961-f10c9600-a551-11eb-89c0-61f9456147e8.png)
    ------------------------------------------------------------------------------------------------------------------------------
 
   👋 In this project, I have built an e-commerce website and learned how to use **getStaticProps** and **getStaticPaths** in Next.js to statically generate the whole website.
