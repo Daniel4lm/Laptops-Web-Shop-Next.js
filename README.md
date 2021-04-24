@@ -2,13 +2,16 @@
 
   :camera: Screenshots:
     
-  ![image](https://user-images.githubusercontent.com/1280747/115615384-2e251e00-a2ef-11eb-9f69-4965c5a00e1a.png)
+  [image](https://user-images.githubusercontent.com/1280747/115972906-8a877800-a551-11eb-8d2f-5f556a6f9793.png)
    ------------------------------------------------------------------------------------------------------------------------------
-  ![image](https://user-images.githubusercontent.com/1280747/115615487-51e86400-a2ef-11eb-8994-c0caab39427f.png)
+  ![image](https://user-images.githubusercontent.com/1280747/115972916-9f640b80-a551-11eb-94db-2996a72b039e.png)
    ------------------------------------------------------------------------------------------------------------------------------
-  ![image](https://user-images.githubusercontent.com/1280747/115615546-64fb3400-a2ef-11eb-878a-160ee7f28687.png)
+  ![image](https://user-images.githubusercontent.com/1280747/115972924-ab4fcd80-a551-11eb-8f2d-6f58c1749344.png)
    ------------------------------------------------------------------------------------------------------------------------------
-  ![image](https://user-images.githubusercontent.com/1280747/115615647-852af300-a2ef-11eb-916b-96db8a0b5152.png)
+  ![image](https://user-images.githubusercontent.com/1280747/115972940-c91d3280-a551-11eb-8ece-2790cb9fcae6.png)
+   ------------------------------------------------------------------------------------------------------------------------------
+   ![image](https://user-images.githubusercontent.com/1280747/115972961-f10c9600-a551-11eb-89c0-61f9456147e8.png)
+   ------------------------------------------------------------------------------------------------------------------------------
 
   👋 In this project, I have built an e-commerce website and learned how to use **getStaticProps** and **getStaticPaths** in Next.js to statically generate the whole website.
 

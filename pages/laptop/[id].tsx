@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
             //marginRight: '1.4rem',
             //padding: '1.4rem',
             color: '#fff',
-            background: '#a29bfe',
+            background: '#55efc4',
             boxShadow: 'none',
             outline: 'none'
         },
@@ -160,7 +160,7 @@ export default function LaptopDetail({ laptop }: LaptopDetailProps) {
     return (
         <div className={classes.root}>
             <Box className={classes.back}>
-                <Button size='small' 
+                <Button size='medium' 
                     onClick={() => router.back()}
                 >Back</Button>
                 <Link href='/'>Home</Link>

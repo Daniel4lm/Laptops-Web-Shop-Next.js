@@ -11,12 +11,10 @@ import '@styles/globals.css';
 // matrial-ui imports
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
+import { Grid } from '@material-ui/core';
 //import { Grid } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
   container: {
     //marginTop: '4rem',
     padding: '1rem'
@@ -40,7 +38,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, []);
 
-  return (
+  return (//
     <>
       <Head>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />

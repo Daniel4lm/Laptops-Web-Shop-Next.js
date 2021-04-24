@@ -1,5 +1,6 @@
 import styles from '@styles/Home.module.css'
 import PoweredBy from "./PoweredBy";
+
 const Footer = () => {
 
     return (
