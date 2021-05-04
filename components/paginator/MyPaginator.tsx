@@ -1,5 +1,5 @@
 import Link from "next/link";
-/* matrial-ui imports */
+/* material-ui imports */
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
@@ -15,9 +15,7 @@ const useStyles = makeStyles((theme) => ({
         padding: "0.4rem 0",
         background: "#fff",
         boxShadow: "0px 0px 1px 0px rgba(175, 175, 175, 0.6)",
-        //borderTop: "4px solid rgba(175, 175, 175, 0.6)",
         borderBottom: "4px solid rgba(76, 175, 80, 0.7)",
-        //borderRadius: "0.2rem",
         "& > *": {
             margin: "0 0.5rem"
         }

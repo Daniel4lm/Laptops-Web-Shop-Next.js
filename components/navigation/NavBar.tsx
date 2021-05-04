@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-// matrial-ui imports
+// material-ui imports
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -37,7 +37,6 @@ export default function NavBar(props) {
 
     const renderTitle = () => {
         const { curPageNum, numOfPages } = props;
-        //console.log('Total pages: ', numOfPages, ' - current page ', curPageNum)
 
         return (
             <Box>
@@ -48,7 +47,7 @@ export default function NavBar(props) {
         );
     }
 
-    return (// 
+    return (
         <AppBar position="static" >
             <Toolbar className={classes.navigation}>
                 <Typography className={classes.title}>
@@ -64,4 +63,4 @@ export default function NavBar(props) {
             </Toolbar>
         </AppBar>
     );
-} // {isLaptopsPath && renderTitle()}
+} 
