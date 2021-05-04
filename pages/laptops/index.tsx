@@ -4,6 +4,7 @@ import { GetStaticProps } from 'next';
 import Link from "next/link";
 import fs from 'fs';
 import { join } from 'path';
+
 /* Material-ui imports */
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -40,9 +41,7 @@ export default function Laptops({ laptops, curPageNum, numOfPages }: LaptopsProp
 
     const classes = useStyles();
 
-    //console.log(JSON.stringify(images, null, 4));
-
-    return ( // className={classes.root}
+    return ( 
         <Grid container direction="column">
 
             <MyPaginator curPageNum={curPageNum} numOfPages={numOfPages} />
@@ -103,13 +102,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const minRange: number = curPageNum * 5;
     const maxRange: number = (curPageNum + 1) * 5;
 
-    //console.log('Total pages ', context.total,'min ', minRange, 'max ', maxRange)
-
     const myDB = await openDB();
     const laptops = await myDB.all("SELECT * FROM laptops WHERE id BETWEEN ? AND ?;", [minRange + 1, maxRange]);
     const { total } = await myDB.get("SELECT COUNT(*) AS total FROM laptops ;");
     const numOfPages: number = (Math.ceil(total / 5.0));
-    //console.log(JSON.stringify(laptops, null, 4))
 
     const serviceDirectory = join(process.cwd(), 'public');
 
@@ -117,7 +113,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
         const imgNames: string[] = fs.readdirSync(`${serviceDirectory}${laptop.imgUrl}`, "utf-8");
         const images = imgNames.map(img => `${laptop.imgUrl}${img}`);
         laptop.imgUrl = images;
-        //console.log(laptop.imgUrl)
     })
 
     return {

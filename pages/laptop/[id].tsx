@@ -136,11 +136,6 @@ export default function LaptopDetail({ laptop }: LaptopDetailProps) {
     const [curImg, setCurImg] = useState<string>(null);
     const [openModal, setOpenModal] = useState<boolean>(false);
 
-    /*
-    useEffect(() => {
-        console.log('Slika ', curImg)
-    }, [curImg])*/
-
     if (router.isFallback) {
         return (
             <div>

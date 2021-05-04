@@ -15,8 +15,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
         return { params: { curPage: (index + 1).toString() } }
     })
 
-    //console.log(JSON.stringify(paths, null, 4))
-
     return {
         fallback: false,
         paths

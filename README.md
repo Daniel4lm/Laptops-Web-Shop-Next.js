@@ -31,7 +31,7 @@ Open your favorite code editor, like Visual Studio Code or Sublime, open the pro
 
 Then, open [http://localhost:3000](http://localhost:3000) with your browser and navigate to my shop.
 
- :mag: The wholeproject structure is as follows:
+ :mag: The whole project structure is as follows:
 ```
   [+] laptops
    |

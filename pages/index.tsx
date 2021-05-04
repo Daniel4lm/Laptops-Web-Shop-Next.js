@@ -40,17 +40,3 @@ export default function Index() {
     </div>
   )
 }
-
-/*
-export const getStaticProps: GetStaticProps = async (context) => {
-
-  const myDB = await openDB();
-
-  const laptops = await myDB.all("SELECT * FROM laptops;")
-
-  return {
-    props: {
-      laptops
-    }
-  }
-}*/
