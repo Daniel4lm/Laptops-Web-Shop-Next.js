@@ -11,7 +11,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <p>Powered by Next.js & zeH-SHOP</p>
+                <p>Powered by Next.js</p>
             </a>
         </footer>
     );

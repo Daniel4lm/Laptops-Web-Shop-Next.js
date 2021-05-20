@@ -20,12 +20,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-
 function MyApp({ Component, pageProps }: AppProps) {
 
   const classes = useStyles();
-
-  const [myState, setMyState] = useState<string>('Masha&Bear');
 
   useEffect(() => {
     // Remove the server-side injected CSS.
@@ -43,9 +40,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ThemeProvider theme={theme}>
         <CssBaseline />
 
-        <NavBar />
+        <NavBar title='Web-Shop Lenovo App' menuIcon />
 
-        <Box className={classes.container}>
+        <Box >
           <Component {...pageProps} />
         </Box>
 
@@ -53,7 +50,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       </ThemeProvider>
     </>
   );
-
-}
+}//className={classes.container}
 
 export default MyApp

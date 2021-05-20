@@ -1,13 +1,35 @@
 .container {
+  position: relative;
   background: #ffffff;
   box-shadow: 0px 0px 2px 2px #e6e6e6;
   border-radius: 0.4rem;
   height: 100vh;
-  padding: 0 0.5rem;
+  padding: 0.5rem;
+  margin: 1.5rem;
+  color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 1;
+}
+
+.container::after {
+  content: "";
+  opacity: 0.8;
+  background: rgba(69, 71, 77, 0.125) url('../public/thinkpad_001.jpg') no-repeat fixed top;
+  background-blend-mode: luminosity;
+  /* also change the blend mode to what suits you, from darken, to other 
+  many options as you deem fit*/
+  background-size: cover;
+  border-radius: 0.4rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: -1;
+  height: 100vh;
 }
 
 .main {
@@ -41,8 +63,75 @@
   margin: 0 0.4rem;
 }
 
+.navbar_link {
+  flex-basis: max-content;
+  margin: 0 0.4rem;
+  letter-spacing: 1px;
+  outline: none;
+  font-size: .875rem;
+  /*line-height: 1.1;
+  font-weight: 500;*/
+  -webkit-box-shadow: inset 0px 0px 0px 2px rgb(132, 134, 255); 
+  box-shadow: inset 0px 0px 0px 2px rgb(132, 134, 255);
+  text-decoration: none;
+  padding: 0.5rem 1.5rem;
+  transition: all .15s ease-in;
+}
+
+.navbar_link:hover {
+  cursor: pointer;
+  background: rgb(97, 98, 201);
+  -webkit-box-shadow: inset 0px 0px 0px 2px rgb(97, 98, 201); 
+  box-shadow: inset 0px 0px 0px 2px rgb(97, 98, 201);
+  color: #fff;
+}
+
+.link {
+  letter-spacing: 1px;
+  outline: none;
+  font-weight: 300;  
+  text-decoration: none;
+  margin: 0 0.4rem;
+  padding: 0.6rem 1.2rem;
+  background: rgb(0,0,0); /* Fallback color */
+  background: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  border: 3px solid #f1f1f1;
+  transition: all .15s ease-in;
+}
+
+.link:hover {
+  cursor: pointer;
+  background: rgba(0,0,0, 0.6);
+  /*
+  -webkit-box-shadow: inset 0px 0px 0px 2px rgb(97, 98, 201); 
+  box-shadow: inset 0px 0px 0px 2px rgb(97, 98, 201);
+  color: #fff;*/
+}
+
+.authBtn {
+  padding: 0.5rem 1.5rem;
+  margin: 0 0.4rem;
+  /*border: 1px solid #cccccc;*/
+  background-color: transparent;
+  border-radius: 0;
+  -webkit-box-shadow: inset 0px 0px 0px 1px #cccccc; 
+  box-shadow: inset 0px 0px 0px 1px rgb(132, 134, 255);
+  color: #35373a;
+  text-decoration: none;
+  font-size: .875rem;
+  line-height: 1.5;
+  font-weight: 500;
+  transition: opacity .15s ease-in, box-shadow .15s ease-in;
+}
+
+.authBtn:hover {
+  -webkit-box-shadow: inset 0px 0px 0px 2px rgb(97, 98, 201); 
+  box-shadow: inset 0px 0px 0px 2px rgb(97, 98, 201);
+}
+
 .title a {
-  color: #0070f3;
+  /*color: rgb(97, 98, 201);*/
   text-decoration: none;
 }
 
@@ -82,7 +171,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   max-width: 90%;
   margin-top: 3rem;
 }
@@ -133,4 +222,19 @@
     width: 100%;
     flex-direction: column;
   }
+  
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    width: 85%;
+    font-size: 1rem;
+  }
+
+  .link {
+    width: 80%;
+    margin: 0.2rem 0;
+  }
+  
 }

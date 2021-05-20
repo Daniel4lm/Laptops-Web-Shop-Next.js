@@ -16,30 +16,48 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+        [theme.breakpoints.down('xs')]: {
+            flexDirection: 'column',
+            justifyContent: 'center',
+            margin: '0.4rem 0',
+        },
     },
     title: {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
     },
+    text: {
+        [theme.breakpoints.down('xs')]: {
+            display: 'none'
+        },
+    },
     navBtn: {
         fontSize: '1em',
-        margin: '0 0.2rem'
+        margin: '0 0.2rem',
+        [theme.breakpoints.down('xs')]: {
+            display: 'none'
+        },
     }
 }));
 
-export default function NavBar(props) {
+interface NavBarType {
+    title: string;
+    menuIcon: boolean;
+}
+
+export default function NavBar({ title, menuIcon }: NavBarType) {
 
     const classes = useStyles();
     const router = useRouter();
     const { pathname } = router;
     const isLaptopsPath: boolean = pathname.startsWith('/laptops');
+    const isAboutPath: boolean = pathname.startsWith('/about');
 
     const renderTitle = () => {
-        const { curPageNum, numOfPages } = props;
 
         return (
-            <Box>
+            <Box className={classes.text}>
                 <Typography variant="h6" color="inherit">
                     Our laptps offer
                 </Typography>
@@ -51,16 +69,22 @@ export default function NavBar(props) {
         <AppBar position="static" >
             <Toolbar className={classes.navigation}>
                 <Typography className={classes.title}>
-                    <Link href='/'>
-                        <IconButton color="inherit" aria-label="menu">
-                            <MenuIcon />
-                        </IconButton>
-                    </Link>
-                    <Typography variant="h6" >zeH-SHOP Lenovo App</Typography>
+                    {menuIcon &&
+                        <Link href='/'>
+                            <IconButton color="inherit" aria-label="menu">
+                                <MenuIcon />
+                            </IconButton>
+                        </Link>
+                    }
+                    <Typography variant="h6" >{title}</Typography>
                 </Typography>
                 {isLaptopsPath && renderTitle()}
-                <Button color="inherit">Login</Button>
+                {!isAboutPath &&
+                    <Link href='/about'>
+                        <Button className={classes.navBtn} color="inherit">About Us</Button>
+                    </Link>
+                }
             </Toolbar>
         </AppBar>
     );
-} 
+}

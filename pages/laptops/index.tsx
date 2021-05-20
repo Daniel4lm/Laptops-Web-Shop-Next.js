@@ -41,54 +41,55 @@ export default function Laptops({ laptops, curPageNum, numOfPages }: LaptopsProp
 
     const classes = useStyles();
 
-    return ( 
-        <Grid container direction="column">
+    return (
+        <div style={{ padding: 10 }}>
+            <Grid container direction="column">
 
-            <MyPaginator curPageNum={curPageNum} numOfPages={numOfPages} />
+                <MyPaginator curPageNum={curPageNum} numOfPages={numOfPages} />
 
-            <Grid container spacing={2}>
-                {laptops.map((laptop) => (
-                    <Grid key={laptop.id} item xs={12} sm={6} lg={3}>
+                <Grid container spacing={2}>
+                    {laptops.map((laptop) => (
+                        <Grid key={laptop.id} item xs={12} sm={6} lg={3}>
 
-                        <Card>
-                            <Link href={`/laptop/${laptop.id}`}>
-                                <a>
-                                    <CardActionArea>
-                                        <CardMedia
-                                            component="img"
-                                            alt={laptop.name + laptop.brand}
-                                            height="250"
-                                            image={laptop.imgUrl[0]}
-                                            title={laptop.brand + ' ' + laptop.name}
-                                        />
-                                        <CardContent>
-                                            <Typography gutterBottom variant="h5" component="h2">
-                                                {laptop.brand + ' ' + laptop.name}
-                                            </Typography>
-                                            <Typography variant="body2" color="textSecondary" component="p">
-                                                Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                                across all continents except Antarctica
-                                        </Typography>
-                                        </CardContent>
-                                    </CardActionArea>
-                                </a>
-                            </Link>
-                            <CardActions>
+                            <Card>
                                 <Link href={`/laptop/${laptop.id}`}>
-                                    <Button size="small" color="primary">
-                                        Open
-                            </Button>
+                                    <a>
+                                        <CardActionArea>
+                                            <CardMedia
+                                                component="img"
+                                                alt={laptop.name + laptop.brand}
+                                                height="250"
+                                                image={laptop.imgUrl[0]}
+                                                title={laptop.brand + ' ' + laptop.name}
+                                            />
+                                            <CardContent>
+                                                <Typography gutterBottom variant="h5" component="h2">
+                                                    {laptop.brand + ' ' + laptop.name}
+                                                </Typography>
+                                                <Typography variant="body2" color="textSecondary" component="p">
+                                                    Click to open the model specifications or the Learn More button to open the Lenovo page
+                                                </Typography>
+                                            </CardContent>
+                                        </CardActionArea>
+                                    </a>
                                 </Link>
-                                <Button className={classes.openBtn} size="small" color="secondary">
-                                    Learn More
+                                <CardActions>
+                                    <Link href={`/laptop/${laptop.id}`}>
+                                        <Button size="small" color="primary">
+                                            Open
                             </Button>
-                            </CardActions>
-                        </Card>
+                                    </Link>
+                                    <Button className={classes.openBtn} size="small" color="secondary">
+                                        Learn More
+                            </Button>
+                                </CardActions>
+                            </Card>
 
-                    </Grid>
-                ))}
+                        </Grid>
+                    ))}
+                </Grid>
             </Grid>
-        </Grid>
+        </div>
     );
 }
 

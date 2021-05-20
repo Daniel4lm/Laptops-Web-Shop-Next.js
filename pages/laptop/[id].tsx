@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import fs from 'fs';
 import { join } from 'path';
 import { openDB } from "@lib/openDB";
@@ -16,14 +18,16 @@ import StorageRoundedIcon from '@material-ui/icons/StorageRounded';
 import AddToQueueRoundedIcon from '@material-ui/icons/AddToQueueRounded';
 import ImageRoundedIcon from '@material-ui/icons/ImageRounded';
 import ZoomInIcon from '@material-ui/icons/ZoomIn';
-import { useEffect, useState } from 'react';
 
 import { Modal as Magnifier } from "@components/modal/Modal";
 import { Box, Button } from '@material-ui/core';
 
+import homeStyles from '@styles/Home.module.css';
+
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
+        padding: 10
     },
     paper: {
         padding: theme.spacing(2),
@@ -65,19 +69,14 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '1.8rem',
         fontWeight: 200
     },
-    back: {
-        margin: theme.spacing(2),
+    panel: {
+        /*marginTop: '0.6rem',
+        marginBottom: '0.8rem',*/
+        display: 'flex',
+        alignItems: 'center',
         fontSize: '1.2em',
         '& > *': {
-            marginRight: theme.spacing(1)
-        },
-        "& :first-child": {
-            //marginRight: '1.4rem',
-            //padding: '1.4rem',
-            color: '#fff',
-            background: '#55efc4',
-            boxShadow: 'none',
-            outline: 'none'
+            margin: theme.spacing(2)
         },
         "& span": {
             color: 'gray',
@@ -154,15 +153,15 @@ export default function LaptopDetail({ laptop }: LaptopDetailProps) {
 
     return (
         <div className={classes.root}>
-            <Box className={classes.back}>
-                <Button size='medium' 
-                    onClick={() => router.back()}
-                >Back</Button>
-                <Link href='/'>Home</Link>
-                <span>/</span>
-                <Link href='/laptops'>Laptops</Link>
-                <span>/</span>
-                <span>{name}</span>
+            <Box className={classes.panel}>
+                <a className={homeStyles.navbar_link} onClick={() => router.back()}>Back</a>
+                <div>
+                    <Link href='/'>Home</Link>
+                    <span>/</span>
+                    <Link href='/laptops'>Laptops</Link>
+                    <span>/</span>
+                    <span>{name}</span>
+                </div>
             </Box>
             <Paper className={classes.paper}>
                 <Grid container spacing={2}>
@@ -265,10 +264,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
     // DB query for one specific laptop
     const laptop = await myDB.get<Laptop | undefined>("SELECT * FROM laptops WHERE id = ?;", [lapId]);
 
-    const imgNames: string[] = fs.readdirSync(`${serviceDirectory}${laptop.imgUrl}`, "utf-8");
-    const images = imgNames.map(img => `${laptop.imgUrl}${img}`);
-    laptop.imgUrl = images;
-
+    if (laptop?.imgUrl) {
+        const imgNames: string[] = fs.readdirSync(`${serviceDirectory}${laptop.imgUrl}`, "utf-8");
+        const images = imgNames.map(img => `${laptop.imgUrl}${img}`);
+        laptop.imgUrl = images;
+    }
     return {
         props: { laptop: laptop || null }
     }
