@@ -18,7 +18,7 @@ const AboutPage = ({ title = 'About me', text = 'This is a section about me', ch
             <div className={styles.about_header} >
                 <div className={styles.pic_wrapper} >
                     <div className={styles.photo} >
-                        <Image className={styles.photo} src='/my-pic.jpg' alt='Author - Just me' layout='fill' />
+                        <img className={styles.photo} src='/my-pic.jpg' alt='Author - Just me' />
                     </div>
                 </div>
                 <span>Daniel Molnar</span>

@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import AppsIcon from '@material-ui/icons/Apps';
 import Box from '@material-ui/core/Box';
 
 
@@ -26,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        "&:hover": {
+            cursor: 'pointer',
+        }
     },
     text: {
         [theme.breakpoints.down('xs')]: {
@@ -51,6 +55,7 @@ export default function NavBar({ title, menuIcon }: NavBarType) {
     const classes = useStyles();
     const router = useRouter();
     const { pathname } = router;
+
     const isLaptopsPath: boolean = pathname.startsWith('/laptops');
     const isAboutPath: boolean = pathname.startsWith('/about');
 
@@ -69,14 +74,17 @@ export default function NavBar({ title, menuIcon }: NavBarType) {
         <AppBar position="static" >
             <Toolbar className={classes.navigation}>
                 <Typography className={classes.title}>
-                    {menuIcon &&
-                        <Link href='/'>
-                            <IconButton color="inherit" aria-label="menu">
-                                <MenuIcon />
-                            </IconButton>
-                        </Link>
-                    }
-                    <Typography variant="h6" >{title}</Typography>
+                    <Link href='/' >
+                        {menuIcon &&
+                            <Typography variant="h6" >
+                                <IconButton color="inherit" aria-label="menu">
+                                    <AppsIcon />
+                                </IconButton>
+                                {title}
+                            </Typography>
+                        }
+                    </Link>
+
                 </Typography>
                 {isLaptopsPath && renderTitle()}
                 {!isAboutPath &&

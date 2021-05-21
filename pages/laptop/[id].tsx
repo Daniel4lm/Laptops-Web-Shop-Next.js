@@ -60,14 +60,18 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     specs: {
-        //borderLeft: '1px solid rgba(70, 70, 70, 0.2)',
+        [theme.breakpoints.down(450)]: {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+        },
     },
     title: {
         color: 'rgb(0, 112, 243)',
         width: 'max-content',
         margin: '1rem',
         fontSize: '1.8rem',
-        fontWeight: 200
+        fontWeight: 200,
     },
     panel: {
         /*marginTop: '0.6rem',
@@ -91,8 +95,19 @@ const useStyles = makeStyles((theme) => ({
         color: 'rgb(70, 70, 70)',
         margin: '0.5rem 0.5rem',
         "& > *": {
-            margin: '0 0.4rem',
-        }
+            marginRight: '0.4rem',
+        },
+        [theme.breakpoints.down(450)]: {
+            flexDirection: 'column'
+        },
+    },
+    row: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        "& > *": {
+            marginRight: '0.4rem',
+        },
     },
     price: {
         margin: '0 0.4rem',
@@ -103,7 +118,7 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     divider: {
-        width: 'auto',
+        width: '100%',
         height: '0.05rem',
         background: '#b2bec3',
         margin: '0.4rem 0'
@@ -200,23 +215,29 @@ export default function LaptopDetail({ laptop }: LaptopDetailProps) {
                                 <Typography className={classes.title} color="primary">
                                     Specifications
                                 </Typography>
-                                <Typography className={classes.typo} variant="h6" color="textPrimary" >
-                                    <LaptopMacRoundedIcon /> Product name: {brand}{' '}{name}
+                                <Typography className={classes.typo} >
+                                    <Typography className={classes.row}><LaptopMacRoundedIcon /> Product name:</Typography>
+                                    <Typography variant="h6" color="textPrimary">{brand}{' '}{name}</Typography>
                                 </Typography>
                                 <Typography className={classes.typo} variant="body1">
-                                    <AddToQueueRoundedIcon /> Display diagonal: <b>{display}</b>
+                                    <Typography className={classes.row}><AddToQueueRoundedIcon /> Display diagonal:</Typography>
+                                    <Typography variant="h6" color="textPrimary"><b>{display}</b></Typography>
                                 </Typography>
                                 <Typography className={classes.typo} variant="body1">
-                                    <MemoryIcon /> Processor: <b>{processor}</b>
+                                    <Typography className={classes.row}><MemoryIcon /> Processor:</Typography>
+                                    <Typography variant="h6" color="textPrimary">{processor}</Typography>
                                 </Typography>
                                 <Typography className={classes.typo} variant="body1">
-                                    <MemoryIcon /> Internal memory: <b>{memory}{' '}{memory_type}</b>
+                                    <Typography className={classes.row}><MemoryIcon /> Internal memory:</Typography>
+                                    <Typography variant="h6" color="textPrimary">{memory}{' '}{memory_type}</Typography>
                                 </Typography>
                                 <Typography className={classes.typo} variant="body1">
-                                    <ImageRoundedIcon /> Graphics: <b>{graphics}</b>
+                                    <Typography className={classes.row}><ImageRoundedIcon /> Graphics:</Typography>
+                                    <Typography variant="h6" color="textPrimary">{graphics}</Typography>
                                 </Typography>
                                 <Typography className={classes.typo} variant="body1" >
-                                    <StorageRoundedIcon /> Storage: <b>{storage}{' '}{storage_unit}</b>
+                                    <Typography className={classes.row}><StorageRoundedIcon /> Storage:</Typography>
+                                    <Typography variant="h6" color="textPrimary">{storage}{' '}{storage_unit}</Typography>
                                 </Typography>
                                 <div className={classes.divider} />
                                 <Typography variant="body1">
@@ -233,7 +254,6 @@ export default function LaptopDetail({ laptop }: LaptopDetailProps) {
                                 <Typography className={classes.price} variant="h6">{price.toFixed(2)} KM</Typography>
                             </Grid>
                         </Grid>
-
                     </Grid>
                 </Grid>
             </Paper>
