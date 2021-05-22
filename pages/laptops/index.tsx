@@ -97,6 +97,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
     /* Pagination */
     const curPage = context.params?.curPage;
+    console.log('cur page ', curPage)
     const curPageNum: number = (Number(curPage) || 0);
 
     /* Paginatio borders */

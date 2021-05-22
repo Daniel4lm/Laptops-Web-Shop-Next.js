@@ -265,21 +265,23 @@ export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
 
     const myDB = await openDB(); // Our db connection
     const laptopIDs = await myDB.all("SELECT id FROM laptops;");
-    const paths = laptopIDs.map((id) => {
-        return { params: { id: id.toString() } };
-    })
+
+    const paths = laptopIDs.map((entry) => {
+        return { params: { id: entry.id.toString() } };
+    });
 
     return {
-        fallback: true,
+        fallback: false,
         paths
     }
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps<LaptopDetailProps> = async (context) => {
 
     const serviceDirectory = join(process.cwd(), 'public');
     // Laptop id parametar
     const lapId = context.params.id;
+    console.log('id ', lapId)
     const myDB = await openDB(); // Our db connection
     // DB query for one specific laptop
     const laptop = await myDB.get<Laptop | undefined>("SELECT * FROM laptops WHERE id = ?;", [lapId]);
@@ -290,6 +292,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
         laptop.imgUrl = images;
     }
     return {
-        props: { laptop: laptop || null }
+        props: { laptop }
     }
 }
