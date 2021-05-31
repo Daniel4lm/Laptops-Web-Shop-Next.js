@@ -1,11 +1,11 @@
 .container {
   position: relative;
   background: #ffffff;
-  box-shadow: 0px 0px 2px 2px #e6e6e6;
-  border-radius: 0.4rem;
+  /*box-shadow: 0px 0px 2px 2px #e6e6e6;*/
+  /*border-radius: 0.4rem;*/
   height: 100vh;
   padding: 0.5rem;
-  margin: 1.5rem;
+  margin-top: 0.1rem;
   color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -17,12 +17,12 @@
 .container::after {
   content: "";
   opacity: 0.8;
-  background: rgba(69, 71, 77, 0.125) url('../public/thinkpad_001.jpg') no-repeat fixed top;
+  background: rgba(69, 71, 77, 0.125) url('../public/thinkpad_003.jpg') no-repeat fixed top;
   background-blend-mode: luminosity;
   /* also change the blend mode to what suits you, from darken, to other 
   many options as you deem fit*/
   background-size: cover;
-  border-radius: 0.4rem;
+  /*border-radius: 0.4rem;*/
   top: 0;
   left: 0;
   right: 0;
@@ -102,7 +102,7 @@
 
 .link:hover {
   cursor: pointer;
-  background: rgba(0,0,0, 0.6);
+  background: rgba(97, 98, 201, 0.875);
   /*
   -webkit-box-shadow: inset 0px 0px 0px 2px rgb(97, 98, 201); 
   box-shadow: inset 0px 0px 0px 2px rgb(97, 98, 201);

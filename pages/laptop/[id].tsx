@@ -281,16 +281,15 @@ export const getStaticProps: GetStaticProps<LaptopDetailProps> = async (context)
     const serviceDirectory = join(process.cwd(), 'public');
     // Laptop id parametar
     const lapId = context.params.id;
-    console.log('id ', lapId)
     const myDB = await openDB(); // Our db connection
     // DB query for one specific laptop
     const laptop = await myDB.get<Laptop | undefined>("SELECT * FROM laptops WHERE id = ?;", [lapId]);
 
-    if (laptop?.imgUrl) {
+    //if (laptop?.imgUrl) {
         const imgNames: string[] = fs.readdirSync(`${serviceDirectory}${laptop.imgUrl}`, "utf-8");
         const images = imgNames.map(img => `${laptop.imgUrl}${img}`);
         laptop.imgUrl = images;
-    }
+    //}
     return {
         props: { laptop }
     }

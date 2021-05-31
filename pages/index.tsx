@@ -23,7 +23,7 @@ export default function Index() {
         </p>
 
         <div className={styles.grid}>
-          <a href="https://www.lenovo.com/us/en/thinkpad" className={styles.link}>
+          <a href="https://www.lenovo.com/us/en/thinkpad" target='_blank' className={styles.link}>
             <h3 className={styles.card_title}>Lenovo Thinkpad units &rarr;</h3>
             <p>Discover ThinkPad.{' '}Every ThinkPad is made to endure.</p>
           </a>
